@@ -1,6 +1,7 @@
-# Project Source - Project Title
+# Employee Directory - Scrimba Solo Project
 
-This is a solution to the [Description of project/challenge](https://www.sourceofproject.com). 
+This is a Bootcamp exclusive solo project from the [Scrimba Frontend Developer Career Path](https://www.scrimba.com). A companion project to the Tindog project, the Employee Directory is meant to be an implementation of moderately advanced JavaScript techniques covered in Module 7 (Next-level JavaScript) of the FEWD path.
+
 
 ## Table of contents
 
@@ -23,8 +24,8 @@ This is a solution to the [Description of project/challenge](https://www.sourceo
 
 Users should be able to:
 
-- Example: View the optimal layout for the interface depending on their device's screen size
-- Example: See hover and focus states for all interactive elements on the page
+- See a directory of employees generated via JavaScript
+- Filter results based on drop-down box options
 
 ### Screenshot
 
@@ -47,10 +48,7 @@ Add a screenshot of your solution. The easiest way to do this is to use Firefox 
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
-- [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
-- [Styled Components](https://styled-components.com/) - For styles
-
+- JavaScript
 
 ### What I learned
 
