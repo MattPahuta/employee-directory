@@ -4,12 +4,38 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png">
+  <!-- <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32x32.png"> -->
   <title>Employee Directory</title>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Calistoga&family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
+  <header class="main-header">
+    <h1>Meet the Team</h1>
+    <form>
+      <!-- search by department -->
+      <label for="employee-select" class="sr-only">Select by Department</label>
+      <select name="employees" id="employee-select" class="employee-select">
+        <option value="everyone">Everyone</option>
+        <option value="leadership">Leadership</option>
+        <option value="sales">Sales</option>
+        <option value="customer service">Customer Service</option>
+        <option value="product">Product</option>
+      </select>
+      <!-- search by employee name -->
+      <!-- <label for="employee-search" class="sr-only">Search by Employee Name</label>
+      <input type="search" id="employee-search" placeholder="search name" class="employee-search"> -->
+
+    </form>
+  </header>
+
+  <main>
+    <section class="results">
+      <!-- generated results go here -->
+    </section>
+  </main>
   
   <script src="./js/index.js"></script>
 </body>
