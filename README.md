@@ -76,7 +76,7 @@ Use this section to outline areas that you want to continue focusing on in futur
 
 ### Useful resources
 
-- [Example resource 1](https://www.example.com) - This helped me for XYZ reason. I really liked this pattern and will use it going forward.
+- [Stephanie Eckles](https://moderncss.dev/custom-select-styles-with-pure-css/) - This great tutorial over at the Modern CSS site by Stephanie Eckles is a fantastic resource and helped greatly in styling the form's select field.
 - [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 
