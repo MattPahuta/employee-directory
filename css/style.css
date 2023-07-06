@@ -21,8 +21,10 @@ https://coolors.co
   --ff-main-heading: 'Calistoga', cursive;
 
   /* COLORS */
-  --clr-white: hsl(0, 0%, 100%);
+  --clr-pure-white: hsl(0, 0%, 100%);
+  --clr-soft-white: hsl(0, 0%, 97%);
   --clr-light-gray: hsla(0, 0%, 80%, 1);
+  --clr-dark-primary: hsl(232, 12%, 13%);
   --clr-black: hsla(0, 0%, 0%, 1);
 
   /* gradient */
@@ -41,7 +43,7 @@ https://coolors.co
 
   /* Form Variables */
   --select-border: #777;
-  --select-focus: blue;
+  --select-focus: hsl(240, 86%, 51%);
   --select-arrow: var(--select-border);
 
 }
@@ -89,14 +91,14 @@ body {
   min-height: 100vh;
   display: grid;
   font-family: var(--ff-primary);
-  color: var(--clr-white);
+  color: var(--clr-dark-primary);
   background: var(--clr-light-gray);
 }
 
 h1 {
   font-family: var(--ff-main-heading);
   font-size: var(--fs-black);
-
+  color: var(--clr-white);
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.90);
   font-weight: 400;
   line-height: 1.2
@@ -116,7 +118,7 @@ h1 {
   border: 0;
 }
 
-/* .even-columns {
+.even-columns {
   display: grid;
   gap: 1rem;
 }
@@ -126,7 +128,7 @@ h1 {
     grid-auto-flow: column;
     grid-auto-columns: 1fr;
   }
-} */
+}
 
 /* Header Styles */
 .main-header {
@@ -215,6 +217,17 @@ select:focus + .focus {
 }
 
 
+.results {
+  margin-inline: auto;
+  max-width: 1000px;
+}
+
+/* Employee Card Styles */
+
+.card {
+  max-width: 20rem;
+  background: var(--clr-soft-white);
+}
 
 
 
