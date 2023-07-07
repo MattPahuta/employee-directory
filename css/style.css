@@ -41,6 +41,9 @@ https://coolors.co
   --fs-xlrg: 2.5rem;
   --fs-black: 4.75rem;
 
+  --fw-bold: 700;
+  --fw-regular: 400;
+
   /* Form Variables */
   --select-border: #777;
   --select-focus: hsl(240, 86%, 51%);
@@ -98,7 +101,7 @@ body {
 h1 {
   font-family: var(--ff-main-heading);
   font-size: var(--fs-black);
-  color: var(--clr-white);
+  color: var(--clr-pure-white);
   text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.90);
   font-weight: 400;
   line-height: 1.2
@@ -138,19 +141,11 @@ h1 {
   align-items: center;
   justify-content: center;
   gap: 1rem;
-  /* background: var(--gradient-primary); */
   background-image: var(--gradient-primary), url('../images/header-bg.png');
   background-blend-mode: color;
   background-repeat: no-repeat;
   background-size: cover;
 }
-
-/* Form */
-/* form {
-  color: rgb(240, 230, 230);
-  border: none; 
-  border-radius: var(--br-soft);
-} */
 
 .search-container {
   width: 30%;
@@ -216,19 +211,70 @@ select:focus + .focus {
   border-radius: inherit;  
 }
 
+main {
+  padding: 0 1.25rem;
+}
 
 .results {
   margin-inline: auto;
-  max-width: 1000px;
+  max-width: 1060px;
 }
 
 /* Employee Card Styles */
 
 .card {
   max-width: 20rem;
+  min-height: 30rem;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
   background: var(--clr-soft-white);
+  border-radius: 0.25rem;
 }
 
+.employee-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.employee-image {
+  margin-bottom: 1rem;
+  max-width: 7.5rem;
+  object-fit: cover;
+  border-radius: var(--br-round);
+}
+
+.employee-name,
+.employee-title {
+  font-weight: var(--fw-bold);
+}
+
+.employee-name {
+  margin-bottom: 0.25rem;
+  font-size: var(--fs-lrg);
+}
+
+.employee-title {
+  margin-bottom: 0.75rem;
+  font-size: var(--fs-med);
+}
+
+.employee-bio p {
+  font-size: var(--fs-sml);
+}
+
+.employee-bio p + p {
+  margin-top: 0.75rem;
+}
+
+.employee-socials {
+  margin-top: auto;
+  display: flex;
+  gap: 1.5rem;
+}
 
 
 
