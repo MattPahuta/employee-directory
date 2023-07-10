@@ -39,7 +39,7 @@ https://coolors.co
   --fs-med: 1rem;
   --fs-lrg: 1.25rem;
   --fs-xlrg: 2.5rem;
-  --fs-black: 4.75rem;
+  --fs-black: 3.25rem;
 
   --fw-bold: 700;
   --fw-regular: 400;
@@ -49,6 +49,13 @@ https://coolors.co
   --select-focus: hsl(240, 86%, 51%);
   --select-arrow: var(--select-border);
 
+}
+
+@media (min-width: 600px) {
+  :root {
+
+    --fs-black: 4.75rem;
+  }
 }
 
 /* RESET */
@@ -140,7 +147,8 @@ h1 {
 }
 
 .search-container {
-  width: 30%;
+  max-width: 500px;
+  width: 70%;
 }
 
 /* reset and remove inherited select styles */
@@ -217,7 +225,7 @@ select:focus + .focus {
 } */
 
 .results {
-  max-width: 1060px;
+  /* max-width: 1060px; */
  /* max-width: 80%; */
   margin-inline: auto;
   padding: 3rem 1.25rem;
@@ -225,14 +233,14 @@ select:focus + .focus {
   /* grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); */
   grid-template-columns: 
     repeat(auto-fit, 
-           minmax(min(18rem, 100%), 1fr));
+           minmax(min(20rem, 100%), 1fr));
 
   gap: 1.875rem;
 }
 
 @media (min-width: 72em) {
   .results {
-    max-width: 70%;
+    max-width: 1200px;
   }
 }
 
