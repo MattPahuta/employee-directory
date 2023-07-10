@@ -24,7 +24,6 @@ function getEmployeesByDepartment(department) {
 
   render(generateEmployeesHtml(selectedEmployees)); // call render to display results
 
-  // return selectedEmployees;
 }
 
 // build employee card html
@@ -35,7 +34,20 @@ function generateEmployeesHtml(data) {
   // loop over each employee from the filtered data
   for (let employee of data) {
     const { name, title, bio, image, social } = employee;
-  
+    // console.log(social.hasOwnProperty('twitter'))
+    // console.log(social.hasOwnProperty('linkedin'))
+    let socialsHtml = ''
+    if (social.hasOwnProperty('twitter')) {
+      socialsHtml += `
+        <img src="./images/twitter.png" alt="Twitter logo" class="social-icon">
+        `
+    }
+    if (social.hasOwnProperty('linkedin')) {
+      socialsHtml += `
+        <img src="./images/linkedin.png" alt="LinkedIn logo" class="social-icon">
+        `
+    }
+
     const employeeCardHtml = `
       <div class="card">
         <img src="./images/team-photos/${image}" alt="${name} headshot" class="employee-image">
@@ -45,8 +57,7 @@ function generateEmployeesHtml(data) {
           ${bio}
         </div>
         <div class="employee-socials">
-          <img src="./images/linkedin.png" alt="" class="social-icon">
-          <img src="./images/twitter.png" alt="" class="social-icon">
+          ${socialsHtml}
         </div>
       </div>
       `
@@ -56,12 +67,20 @@ function generateEmployeesHtml(data) {
   return employeesHtml;
 }
 
+/*
+  Social icon html
+    <img src="./images/linkedin.png" alt="" class="social-icon">
+    <img src="./images/twitter.png" alt="" class="social-icon">
+*/
+
 
 // render the selected employees to the page
 function render(employeesHtml) {
   document.getElementById('results').innerHTML = employeesHtml;
 }
 
+
+getEmployeesByDepartment('everyone'); // get everyone by default
 
 // Test data
 // const employees = [
