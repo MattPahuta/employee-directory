@@ -4,12 +4,17 @@ import employees from "./employees.js";
 
 // Get the value of the select option 
 const departmentSelect = document.getElementById('department-select');
+const nameInput = document.getElementById('name-search');
 
 departmentSelect.addEventListener('change', (e) => {
   console.log('selected: ', e.target.value)
   console.log(getEmployeesByDepartment(e.target.value))
 
 })
+
+nameInput.addEventListener('input', filterEmployeesByName);
+
+
 
 // filter employees by department
 function getEmployeesByDepartment(department) {
@@ -26,6 +31,20 @@ function getEmployeesByDepartment(department) {
 
 }
 
+// Filter employees by name
+function filterEmployeesByName(e) {
+
+  const text = e.target.value.toLowerCase();
+  console.log(text)
+
+  const filteredEmployees = employees.filter(employee => {
+    return employee.name.toLowerCase().includes(text)
+  })
+  console.log(filteredEmployees)
+  // return filteredEmployees;
+
+}
+
 // build employee card html
 function generateEmployeesHtml(data) {
 
@@ -36,6 +55,8 @@ function generateEmployeesHtml(data) {
     const { name, title, bio, image, social } = employee;
     // console.log(social.hasOwnProperty('twitter'))
     // console.log(social.hasOwnProperty('linkedin'))
+
+    // ToDo: a tags and dynamic href's to social media generation
     let socialsHtml = ''
     if (social.hasOwnProperty('twitter')) {
       socialsHtml += `

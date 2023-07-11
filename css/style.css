@@ -159,21 +159,13 @@ h1 {
 }
 
 .search-container {
-  max-width: 500px;
+  max-width: 550px;
   width: 70%;
-
-  display: flex;
-  flex-direction: column;
-
   border: none;
   background: transparent;
-
   background-color: var(--clr-pure-white);
-
   border-radius: var(--br-soft);
 }
-
-
 
 .select-container {
   display: grid;
@@ -247,6 +239,7 @@ select:focus + .focus {
 .name-search {
   width: 100%;
   border: none;
+  border-top: 1px solid var(--clr-light-grey);
   border-bottom-left-radius: var(--br-soft);
   border-bottom-right-radius: var(--br-soft);
 
@@ -264,18 +257,16 @@ select:focus + .focus {
 
 @media (min-width: 600px) {
   .search-container {
-    flex-direction: row;
-    gap: 0.25rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.125rem;
   }
 
   .select-container {
     margin-bottom: 0;
-    border-right: 1px solid var(--clr-light-grey);
     border-radius: 0;
     border-top-left-radius: var(--br-soft);
     border-bottom-left-radius: var(--br-soft);
-
-
   }
 
   select:focus + .focus {
@@ -285,6 +276,8 @@ select:focus + .focus {
 
   .name-search {
     border-radius: 0;
+    border: none;
+    border-left: 1px solid var(--clr-light-grey);
     border-top-right-radius: var(--br-soft);
     border-bottom-right-radius: var(--br-soft);
   }
