@@ -3,11 +3,11 @@ import employees from "./employees.js"; // import array of employees
 loadEventListeners();
 
 function loadEventListeners() {
-  document.getElementById('department-select').addEventListener('change', getEmployeesByTeam);
+  document.getElementById('team-select').addEventListener('change', getEmployeesByTeam);
   document.getElementById('name-search').addEventListener('input', filterEmployeesByName);
 }
 
-// filter employees by department
+// filter employees by team
 function getEmployeesByTeam(e) {
   let selectedTeam = e.target.value // set selectedTeam to value of selected option
   let selectedEmployees; // initialize selectedEmployees 
@@ -16,7 +16,6 @@ function getEmployeesByTeam(e) {
   } else { // otherwise, filter based on team name
     selectedEmployees = employees.filter((employee) => employee.team === selectedTeam);
   }
-
   render(generateEmployeesHtml(selectedEmployees)); // call render to display results
 }
 
@@ -26,7 +25,7 @@ function filterEmployeesByName(e) {
   const filteredEmployees = employees.filter(employee => {
     return employee.name.toLowerCase().includes(inputText)
   })
-
+  document.getElementById('team-select').value = 'everyone'; // reset team select to 'everyone'
   render(generateEmployeesHtml(filteredEmployees))
 
 }
