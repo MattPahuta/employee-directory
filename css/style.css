@@ -52,8 +52,7 @@ https://coolors.co
   --input-border: #8b8a8b;
   --input-focus-h: 245;
   --input-focus-s: 100%;
-  --input-focus-l: 42%
-
+  --input-focus-l: 42%;
 
   --grid-gap: 1.25rem;
 
@@ -291,6 +290,7 @@ select:focus + .focus {
   grid-template-columns: 
     repeat(auto-fit, 
            minmax(min(18rem, 100%), 1fr));
+  justify-items: center;
   gap: var(--grid-gap);
 }
 
@@ -306,6 +306,7 @@ select:focus + .focus {
 
 .card {
   min-height: 30rem;
+  max-width: 24rem;
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
