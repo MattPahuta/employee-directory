@@ -1,50 +1,33 @@
-console.log('Scripts connected!') // debug - remove before production
-
 import employees from "./employees.js"; // import array of employees
 
-// Get the value of the select option 
-const departmentSelect = document.getElementById('department-select');
-const nameInput = document.getElementById('name-search');
+loadEventListeners();
 
-departmentSelect.addEventListener('change', (e) => {
-  // console.log('selected: ', e.target.value)
-  getEmployeesByTeam(e.target.value); // get employees based on team (string)
-
-})
-
-nameInput.addEventListener('input', filterEmployeesByName);
-
-
+function loadEventListeners() {
+  document.getElementById('department-select').addEventListener('change', getEmployeesByTeam);
+  document.getElementById('name-search').addEventListener('input', filterEmployeesByName);
+}
 
 // filter employees by department
-function getEmployeesByTeam(department) { // name of team (string)
-  // console.log('All employees: ', employees)
-  let selectedEmployees;
-  if (department === 'everyone') {
-    selectedEmployees = employees;
-  } else {
-    selectedEmployees = employees.filter((employee) => employee.team === department);
-    // console.log(generateEmployeesHtml(selectedEmployees))
+function getEmployeesByTeam(e) {
+  let selectedTeam = e.target.value // set selectedTeam to value of selected option
+  let selectedEmployees; // initialize selectedEmployees 
+  if (selectedTeam === 'everyone') {
+    selectedEmployees = employees; // get all employees if everyone is selected
+  } else { // otherwise, filter based on team name
+    selectedEmployees = employees.filter((employee) => employee.team === selectedTeam);
   }
 
   render(generateEmployeesHtml(selectedEmployees)); // call render to display results
-
 }
 
 // Filter employees by name
 function filterEmployeesByName(e) {
-
-  const text = e.target.value.toLowerCase();
-  console.log(text)
-
+  const inputText = e.target.value.toLowerCase();
   const filteredEmployees = employees.filter(employee => {
-    return employee.name.toLowerCase().includes(text)
+    return employee.name.toLowerCase().includes(inputText)
   })
 
   render(generateEmployeesHtml(filteredEmployees))
-
-  console.log(filteredEmployees)
-  // return filteredEmployees;
 
 }
 
@@ -89,11 +72,9 @@ function generateEmployeesHtml(data) {
   return employeesHtml;
 }
 
-
 // render the selected employees to the page
 function render(employeesHtml) {
   document.getElementById('results').innerHTML = employeesHtml;
 }
 
-
-getEmployeesByTeam('everyone'); // get everyone by default
+render(generateEmployeesHtml(employees)); // render everyone by default

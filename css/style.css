@@ -1,21 +1,10 @@
-/*
-Author: Matt Pahuta
-https://www.mattpahuta.com
-Date: 
-
-COOLORS color palette link
-https://coolors.co
-*/
-
 /* **************** */
 /* Custom Variables */
 /* **************** */
 :root {
-  
-  /* FONTS */
-  /* 
-  Main heading: 'Calistoga', cursive;
-  Card fonts: 'Inter', sans-serif; 
+  /* FONTS
+     Main heading: 'Calistoga', cursive;
+     Card fonts: 'Inter', sans-serif; 
   */
   --ff-primary: 'Inter', sans-serif;
   --ff-main-heading: 'Calistoga', cursive;
@@ -26,9 +15,12 @@ https://coolors.co
   --clr-light-grey: #CBCBCB;
   --clr-dark-primary: #1d1e25;
   --clr-black: #000000;
+  /* Select/Input Variables */
+  --select-border: #777;
+  --select-focus: hsl(240, 72%, 50%);
 
   /* gradient */
-  --gradient-primary: linear-gradient(180deg, hsl(176, 53%, 41%) 0%, hsla(176, 53%, 41%, 0) 59.90%, hsla(176, 53%, 41%, 0) 100%);
+  --gradient-primary: linear-gradient(180deg, hsl(176, 53%, 41%) 0%, hsla(176, 53%, 41%, 0) 60%, hsla(176, 53%, 41%, 0) 100%);
   
   /* BORDER RADIUS */
   --br-soft: .5rem;
@@ -40,22 +32,12 @@ https://coolors.co
   --fs-lrg: 1.25rem;
   --fs-xlrg: 2.5rem;
   --fs-black: 3.25rem;
-
+  /* Font weights */
   --fw-bold: 700;
   --fw-regular: 400;
 
-  /* Input Variables */
-  --select-border: #777;
-  --select-focus: hsl(240, 72%, 50%);
-  --select-arrow: var(--select-border);
-
-  --input-border: #8b8a8b;
-  --input-focus-h: 245;
-  --input-focus-s: 100%;
-  --input-focus-l: 42%;
-
+  /* Grid gaps */
   --grid-gap: 1.25rem;
-
 }
 
 @media (min-width: 600px) {
@@ -142,7 +124,6 @@ h1 {
 /* Header Styles */
 .main-header {
   min-height: 18rem;
-  /* max-height: 18.75rem; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -168,31 +149,25 @@ h1 {
   grid-template-areas: 'select';
   align-items: center;
   position: relative;
-
   border: 1px solid var(--select-border);
-
   border: none;
   border-radius: var(--br-soft);
-
   padding: 0.5em 0.75em;
   font-size: var(--fs-lrg);
   cursor: pointer;
   line-height: 1.1;
   background-color: var(--clr-pure-white);
-
   margin-bottom: .25rem;
 }
 
-/* reset and remove inherited select styles */
+/* additional reset for inherited select styles */
 select {
   appearance: none;
   background-color: transparent;
   border: none;
   padding: 0.25em .5em;
-
   margin: 0;
   width: 100%;
-  font-family: inherit;
   font-size: inherit;
   cursor: inherit;
   line-height: inherit;  
@@ -228,27 +203,22 @@ select:focus + .focus {
 }
 
 
-
 /* Search by Employee Name Input */
-
-
 .name-search {
   width: 100%;
   border: none;
   border-top: 1px solid var(--clr-light-grey);
   border-bottom-left-radius: var(--br-soft);
   border-bottom-right-radius: var(--br-soft);
-
   padding: 0.5em 1em;
-  font-family: inherit;
   font-size: var(--fs-lrg);
-
 }
 
 
 .name-search:focus {
   border-radius: var(--br-soft);
-  border: 1px solid var(--select-focus);
+  border: 2px solid var(--select-focus);
+  outline: none;
 }
 
 @media (min-width: 600px) {
@@ -278,9 +248,7 @@ select:focus + .focus {
     border-bottom-right-radius: var(--br-soft);
   }
 
-
 }
-
 
 .results {
   max-width: 90%;
@@ -294,7 +262,6 @@ select:focus + .focus {
   gap: var(--grid-gap);
 }
 
-
 @media (min-width: 1260px) {
   .results {
     max-width: 1200px;
@@ -303,10 +270,9 @@ select:focus + .focus {
 
 
 /* Employee Card Styles */
-
 .card {
   min-height: 30rem;
-  max-width: 24rem;
+  max-width: 28.125rem;
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
@@ -315,7 +281,6 @@ select:focus + .focus {
   background: var(--clr-pure-white);
   border-radius: 0.25rem;
 }
-
 
 .employee-image {
   margin-bottom: 1rem;
@@ -338,7 +303,6 @@ select:focus + .focus {
   margin-bottom: 1rem;
   font-size: var(--fs-med);
 }
-
 
 .employee-bio p {
   font-size: var(--fs-sml);
