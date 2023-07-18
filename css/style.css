@@ -111,12 +111,9 @@ body {
   flex-direction: column;
   font-family: var(--ff-primary);
   color: var(--clr-dark-primary);
-  background: var(--clr-pure-white);
-}
-
-main {
   background: var(--clr-soft-white);
 }
+
 
 h1 {
   font-family: var(--ff-main-heading);
