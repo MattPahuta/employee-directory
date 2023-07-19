@@ -28,13 +28,13 @@ Users should be able to:
 
 ### Screenshot
 
-![](./images/project-ss.jpg.jpg)
+![](./images/project-ss.jpg)
 
 
 ### Links
 
-- [Scrima Scrim](https://your-solution-url.com)
-- [Live Site](https://your-live-site-url.com)
+- [Scrima Scrim](https://scrimba.com/scrim/co5524046a9546c7fdce675ee)
+- [Live Site](https://employee-directory-phi.vercel.app/)
 
 ## My process
 

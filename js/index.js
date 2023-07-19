@@ -16,6 +16,7 @@ function getEmployeesByTeam(e) {
   } else { // otherwise, filter based on team name
     selectedEmployees = employees.filter((employee) => employee.team === selectedTeam);
   }
+  document.getElementById('name-search').value = ''; // reset name search input for clarity
   render(generateEmployeesHtml(selectedEmployees)); // call render to display results
 }
 
