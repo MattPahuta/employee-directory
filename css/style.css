@@ -8,7 +8,6 @@
   */
   --ff-primary: 'Inter', sans-serif;
   --ff-main-heading: 'Calistoga', cursive;
-
   /* COLORS */
   --clr-pure-white: #ffffff;
   --clr-soft-white: #F5F5F5;
@@ -18,14 +17,11 @@
   /* Select/Input Variables */
   --select-border: #777;
   --select-focus: hsl(240, 72%, 50%);
-
   /* gradient */
   --gradient-primary: linear-gradient(180deg, hsl(176, 53%, 41%) 0%, hsla(176, 53%, 41%, 0) 60%, hsla(176, 53%, 41%, 0) 100%);
-  
   /* BORDER RADIUS */
   --br-soft: .5rem;
   --br-round: 50%;
-  
   /*FONT SIZES*/
   --fs-sml: 0.9375rem;
   --fs-med: 1rem;
@@ -35,7 +31,6 @@
   /* Font weights */
   --fw-bold: 700;
   --fw-regular: 400;
-
   /* Grid gaps */
   --grid-gap: 1.25rem;
 }
@@ -85,7 +80,6 @@ p, h1, h2, h3, h4, h5, h6 {
 }
 
 /* BASE STYLES */
-
 body {
   min-height: 100vh;
   display: flex;
@@ -94,7 +88,6 @@ body {
   color: var(--clr-dark-primary);
   background: var(--clr-soft-white);
 }
-
 
 h1 {
   font-family: var(--ff-main-heading);
@@ -106,6 +99,7 @@ h1 {
 }
 
 /* Utility Classes */
+
 /* for screen-readers only */
 .sr-only {
   position: absolute;
@@ -118,8 +112,6 @@ h1 {
   white-space: nowrap;
   border: 0;
 }
-
-
 
 /* Header Styles */
 .main-header {
@@ -202,7 +194,6 @@ select:focus + .focus {
   border-radius: inherit;  
 }
 
-
 /* Search by Employee Name Input */
 .name-search {
   width: 100%;
@@ -213,7 +204,6 @@ select:focus + .focus {
   padding: 0.5em 1em;
   font-size: var(--fs-lrg);
 }
-
 
 .name-search:focus {
   border-radius: var(--br-soft);
@@ -268,7 +258,6 @@ select:focus + .focus {
   }
 }
 
-
 /* Employee Card Styles */
 .card {
   min-height: 30rem;
@@ -321,5 +310,3 @@ select:focus + .focus {
 .social-icon:hover {
   cursor: pointer;
 }
-
-

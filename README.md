@@ -12,10 +12,8 @@ This is a Bootcamp exclusive solo project from the [Scrimba Frontend Developer C
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Continued development](#continued-development)
   - [Useful resources](#useful-resources)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
 
 
 ## Overview
@@ -24,20 +22,19 @@ This is a Bootcamp exclusive solo project from the [Scrimba Frontend Developer C
 
 Users should be able to:
 
-- See a directory of employees generated via JavaScript
-- Filter results based on drop-down box options
+- Upon page visit, see complete directory of employees
+- Select a team from the drop-down and view corresponding results
+- Search for specific employee names using the search input field
 
 ### Screenshot
 
-![](./screenshot.jpg)
-
-Add a screenshot of your solution. The easiest way to do this is to use Firefox to view your project, right-click the page and select "Take a Screenshot". You can choose either a full-height screenshot or a cropped one based on how long the page is. If it's very long, it might be best to crop it.
+![](./images/project-ss.jpg.jpg)
 
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- [Scrima Scrim](https://your-solution-url.com)
+- [Live Site](https://your-live-site-url.com)
 
 ## My process
 
@@ -45,48 +42,33 @@ Add a screenshot of your solution. The easiest way to do this is to use Firefox 
 
 - Semantic HTML5 markup
 - CSS custom properties
-- Flexbox
-- CSS Grid
+- CSS Grid and Flexbox
 - Mobile-first workflow
 - JavaScript
 
 ### What I learned
 
-Use this section to recap over some of your major learnings while working through this project. Writing these out and providing code samples of areas you want to highlight is a great way to reinforce your own knowledge.
+In addition to a collection of select and input styles heavily adapted from the Stephanie Eckles' guidance over at Modern CSS, I was able to put into practice several JavaScript solutions I hadn't used recently. 
 
-To see how you can add code snippets, see below:
+The filterEmployeesByName function is a fairly implementation I've used in similar projects, but I've found it's good to start with fundamental solutions that have worked well in the past and build from there. Utilizing the toLowerCase and trim methods aids in normalizing the text that's being filtered. 
 
-```html
-<h1>Some HTML code I'm proud of</h1>
-```
-```css
-.proud-of-this-css {
-  color: papayawhip;
-}
-```
 ```js
-const proudOfThisFunc = () => {
-  console.log('🎉')
+function filterEmployeesByName(e) {
+  const inputText = e.target.value.toLowerCase().trim();
+  const filteredEmployees = employees.filter(employee => {
+    return employee.name.toLowerCase().includes(inputText)
+  })
+  document.getElementById('team-select').value = 'everyone';
+  render(generateEmployeesHtml(filteredEmployees))
 }
 ```
-
-### Continued development
-
-Use this section to outline areas that you want to continue focusing on in future projects. These could be concepts you're still not completely comfortable with or techniques you found useful that you want to refine and perfect.
 
 ### Useful resources
 
 - [Stephanie Eckles](https://moderncss.dev/custom-select-styles-with-pure-css/) - This great tutorial over at the Modern CSS site by Stephanie Eckles is a fantastic resource and helped greatly in styling the form's select field.
-- [Example resource 2](https://www.example.com) - This is an amazing article which helped me finally understand XYZ. I'd recommend it to anyone still learning this concept.
 
 
 ## Author
 
 - Website - [Matt Pahuta](https://www.mattpahuta.com)
-- Frontend Mentor - [@mattpahuta](https://www.frontendmentor.io/profile/MattPahuta)
 - Twitter - [@mattpahuta](https://www.twitter.com/MattPahuta)
-
-
-## Acknowledgments
-
-This is where you can give a hat tip to anyone who helped you out on this project. Perhaps you worked in a team or got some inspiration from someone else's solution. This is the perfect place to give them some credit.

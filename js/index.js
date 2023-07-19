@@ -21,32 +21,28 @@ function getEmployeesByTeam(e) {
 
 // Filter employees by name
 function filterEmployeesByName(e) {
-  const inputText = e.target.value.toLowerCase();
-  const filteredEmployees = employees.filter(employee => {
+  const inputText = e.target.value.toLowerCase().trim(); // normalize text input with toLowerCase and trim
+  const filteredEmployees = employees.filter(employee => { // filter directory based on inputText
     return employee.name.toLowerCase().includes(inputText)
   })
-  document.getElementById('team-select').value = 'everyone'; // reset team select to 'everyone'
+  document.getElementById('team-select').value = 'everyone'; // reset team select to 'everyone' for clarity
   render(generateEmployeesHtml(filteredEmployees))
-
 }
 
 // build employee card html
 function generateEmployeesHtml(data) {
-
   let employeesHtml = '';
-
   // loop over each employee from the filtered data
   for (let employee of data) {
     const { name, title, bio, image, social } = employee;
-
     // ToDo: a tags and dynamic href's to social media generation
     let socialsHtml = ''
-    if (social.hasOwnProperty('twitter')) {
+    if (social.hasOwnProperty('twitter')) { // check for twitter
       socialsHtml += `
         <img src="./images/twitter.png" alt="Twitter logo" class="social-icon">
         `
     }
-    if (social.hasOwnProperty('linkedin')) {
+    if (social.hasOwnProperty('linkedin')) { // check for linkedin
       socialsHtml += `
         <img src="./images/linkedin.png" alt="LinkedIn logo" class="social-icon">
         `
