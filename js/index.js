@@ -7,70 +7,93 @@ function loadEventListeners() {
   document.getElementById('name-search').addEventListener('input', filterEmployeesByName);
 }
 
-// filter employees by team
+// Get employees by team - v2
 function getEmployeesByTeam(e) {
-  let selectedTeam = e.target.value // set selectedTeam to value of selected option
-  let selectedEmployees; // initialize selectedEmployees 
-  if (selectedTeam === 'everyone') {
-    selectedEmployees = employees; // get all employees if everyone is selected
-  } else { // otherwise, filter based on team name
-    selectedEmployees = employees.filter((employee) => employee.team === selectedTeam);
-  }
-  document.getElementById('name-search').value = ''; // reset name search input for clarity
-  render(generateEmployeesHtml(selectedEmployees)); // call render to display results
-}
+  const selectedTeam = e.target.value;
 
-// Filter employees by name
+  const selectedEmployees = selectedTeam === 'everyone' 
+    ? employees 
+    : employees.filter(employee => employee.team === selectedTeam);
+  resetNameSearchInput();
+  render(selectedEmployees);
+  }
+  
+// Filter employees by team - v2
 function filterEmployeesByName(e) {
-  const inputText = e.target.value.toLowerCase().trim(); // normalize text input with toLowerCase and trim
-  const filteredEmployees = employees.filter(employee => { // filter directory based on inputText
-    return employee.name.toLowerCase().includes(inputText)
-  })
-  document.getElementById('team-select').value = 'everyone'; // reset team select to 'everyone' for clarity
-  render(generateEmployeesHtml(filteredEmployees))
+  const inputText = e.target.value.toLowerCase().trim(); // normalize text input with toLowerCase and trim 
+  const filteredEmployees = employees.filter(employee =>  // filter directory based on inputText
+  employee.name.toLowerCase().includes(inputText)
+  );
+  resetTeamSelect();
+  render(filteredEmployees);
 }
 
-// build employee card html
-function generateEmployeesHtml(data) {
-  let employeesHtml = '';
-  // loop over each employee from the filtered data
-  for (let employee of data) {
-    const { name, title, bio, image, social } = employee;
-    // ToDo: a tags and dynamic href's to social media generation
-    let socialsHtml = ''
-    if (social.hasOwnProperty('twitter')) { // check for twitter
-      socialsHtml += `
-        <img src="./images/twitter.png" alt="Twitter logo" class="social-icon">
-        `
-    }
-    if (social.hasOwnProperty('linkedin')) { // check for linkedin
-      socialsHtml += `
-        <img src="./images/linkedin.png" alt="LinkedIn logo" class="social-icon">
-        `
-    }
+function resetTeamSelect() {
+  document.getElementById('team-select').value = 'everyone';
+}
+  
+function resetNameSearchInput() {    
+  document.getElementById('name-search').value = '';
+}
 
-    const employeeCardHtml = `
-      <div class="card">
-        <img src="./images/team-photos/${image}" alt="${name} headshot" class="employee-image">
-        <h2 class="employee-name">${name}</h2>
-        <p class="employee-title">${title}</p>
-        <div class="employee-bio">
-          ${bio}
-        </div>
-        <div class="employee-socials">
-          ${socialsHtml}
-        </div>
-      </div>
-      `
-    employeesHtml += employeeCardHtml;
+function generateSocialsHtml(social) {
+  let socialsHtml = '';
+  if (social.hasOwnProperty('twitter')) { // check for twitter
+    socialsHtml += `<img src="./images/twitter.png" alt="Twitter logo" class="social-icon">`
+  }
+  if (social.hasOwnProperty('linkedin')) { // check for linkedin
+    socialsHtml += `<img src="./images/linkedin.png" alt="LinkedIn logo" class="social-icon">`
+  }
+  return socialsHtml;
+}
+
+// render v2 - more performative than previous generateEmployeesHtml function
+function render(employeesData) {
+  const resultsSection = document.getElementById('results');
+
+  while (resultsSection.firstChild) { // clear existing results content with while loop
+    resultsSection.removeChild(resultsSection.firstChild);
   }
 
-  return employeesHtml;
+  // create and append employee cards to results section
+  for (const employee of employeesData) { // *** make a forEach loop?
+    const { name, title, bio, image, social } = employee;
+    const socialsHtml = generateSocialsHtml(social);
+
+    // build employee card
+    const card = document.createElement('div');
+    card.classList.add('card');
+
+    // build employee image
+    const imageEl = document.createElement('img');
+    imageEl.src = `./images/team-photos/${image}`;
+    imageEl.alt = `${name} headshot`;
+    imageEl.classList.add('employee-image');
+    card.appendChild(imageEl);
+
+    const nameEl = document.createElement('h2');
+    nameEl.classList.add('employee-name');
+    nameEl.textContent = name;
+    card.appendChild(nameEl);
+
+    const titleEl = document.createElement('p');
+    titleEl.classList.add('employee-title');
+    titleEl.textContent = title;
+    card.appendChild(titleEl);
+
+    const bioEl = document.createElement('div');
+    bioEl.classList.add('employee-bio');
+    bioEl.innerHTML = bio;
+    card.appendChild(bioEl);
+
+    const socialsEl = document.createElement('div');
+    socialsEl.classList.add('employee-socials');
+    socialsEl.innerHTML = socialsHtml;
+    card.appendChild(socialsEl);
+
+    resultsSection.appendChild(card);
+
+  }
 }
 
-// render the selected employees to the page
-function render(employeesHtml) {
-  document.getElementById('results').innerHTML = employeesHtml;
-}
-
-render(generateEmployeesHtml(employees)); // render everyone by default
+render(employees)
