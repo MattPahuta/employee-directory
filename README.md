@@ -33,7 +33,7 @@ Users should be able to:
 
 ### Links
 
-- [Scrima Scrim](https://scrimba.com/scrim/co5524046a9546c7fdce675ee)
+- [Scrimba Scrim](https://scrimba.com/scrim/co5524046a9546c7fdce675ee)
 - [Live Site](https://employee-directory-phi.vercel.app/)
 
 ## My process
