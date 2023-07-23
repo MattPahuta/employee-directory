@@ -1,12 +1,12 @@
 # Employee Directory - Scrimba Solo Project
 
-This is a Bootcamp exclusive solo project from the [Scrimba Frontend Developer Career Path](https://www.scrimba.com). A companion project to the Tindog project, the Employee Directory is meant to be an implementation of moderately advanced JavaScript techniques covered in Module 7 (Next-level JavaScript) of the FEWD path.
+This is a Bootcamp exclusive solo project from the [Scrimba Frontend Developer Career Path](https://www.scrimba.com). A companion project to the Tindog project, the Employee Directory project is intended to see the implementation of the moderately advanced JavaScript techniques covered in Module 7 (Next-level JavaScript) of the FEWD path. My project solution includes the use of several modern JS methods such as filter() and includes(), object destructuring assignment, loops (while, for...of), and various conditionals (if and ternary statements).
 
 
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
+  - [The project](#the-project)
   - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
@@ -18,11 +18,11 @@ This is a Bootcamp exclusive solo project from the [Scrimba Frontend Developer C
 
 ## Overview
 
-### The challenge
+### The project
 
 Users should be able to:
 
-- Upon page visit, see complete directory of employees
+- Upon page visit, see the complete directory of employees
 - Select a team from the drop-down and view corresponding results
 - Search for specific employee names using the search input field
 
@@ -50,16 +50,15 @@ Users should be able to:
 
 In addition to a collection of select and input styles heavily adapted from the Stephanie Eckles' guidance over at Modern CSS, I was able to put into practice several JavaScript solutions I hadn't used recently. 
 
-The filterEmployeesByName function is a fairly implementation I've used in similar projects, but I've found it's good to start with fundamental solutions that have worked well in the past and build from there. Utilizing the toLowerCase and trim methods aids in normalizing the text that's being filtered. 
+filterEmployeesByName is a straightforward function I've used in similar projects, but I've found it's good to start with fundamental solutions that have worked well in the past and build from there. Utilizing the toLowerCase and trim methods aids in normalizing the text that's being filtered. 
 
 ```js
 function filterEmployeesByName(e) {
-  const inputText = e.target.value.toLowerCase().trim();
-  const filteredEmployees = employees.filter(employee => {
-    return employee.name.toLowerCase().includes(inputText)
-  })
-  document.getElementById('team-select').value = 'everyone';
-  render(generateEmployeesHtml(filteredEmployees))
+  const inputText = e.target.value.toLowerCase().trim(); // normalize text input with toLowerCase and trim 
+  const filteredEmployees = employees.filter(employee =>  // filter directory based on inputText
+    employee.name.toLowerCase().includes(inputText)); // return results
+  resetTeamSelect(); // reset the team select field for clarity
+  render(filteredEmployees); // render the filtered employees
 }
 ```
 

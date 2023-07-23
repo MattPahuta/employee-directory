@@ -7,7 +7,7 @@ function loadEventListeners() {
   document.getElementById('name-search').addEventListener('input', filterEmployeesByName);
 }
 
-// Get employees by team - v2
+// Get employees by team
 function getEmployeesByTeam(e) {
   const selectedTeam = e.target.value;
 
@@ -18,24 +18,26 @@ function getEmployeesByTeam(e) {
   render(selectedEmployees);
   }
   
-// Filter employees by team - v2
+// Filter employees by team
 function filterEmployeesByName(e) {
   const inputText = e.target.value.toLowerCase().trim(); // normalize text input with toLowerCase and trim 
   const filteredEmployees = employees.filter(employee =>  // filter directory based on inputText
-  employee.name.toLowerCase().includes(inputText)
+    employee.name.toLowerCase().includes(inputText)
   );
   resetTeamSelect();
   render(filteredEmployees);
 }
 
+// Reset the team select to everyone
 function resetTeamSelect() {
   document.getElementById('team-select').value = 'everyone';
 }
-  
+// Reset name input to a blank value
 function resetNameSearchInput() {    
   document.getElementById('name-search').value = '';
 }
 
+// Check for existing socials and generate html
 function generateSocialsHtml(social) {
   let socialsHtml = '';
   if (social.hasOwnProperty('twitter')) { // check for twitter
@@ -47,7 +49,7 @@ function generateSocialsHtml(social) {
   return socialsHtml;
 }
 
-// render v2 - more performative than previous generateEmployeesHtml function
+// render employees to the page
 function render(employeesData) {
   const resultsSection = document.getElementById('results');
 
@@ -56,41 +58,39 @@ function render(employeesData) {
   }
 
   // create and append employee cards to results section
-  for (const employee of employeesData) { // *** make a forEach loop?
+  for (const employee of employeesData) {
     const { name, title, bio, image, social } = employee;
-    const socialsHtml = generateSocialsHtml(social);
-
+    const socialsHtml = generateSocialsHtml(social); // get the socials html
     // build employee card
     const card = document.createElement('div');
     card.classList.add('card');
-
     // build employee image
     const imageEl = document.createElement('img');
     imageEl.src = `./images/team-photos/${image}`;
     imageEl.alt = `${name} headshot`;
     imageEl.classList.add('employee-image');
     card.appendChild(imageEl);
-
+    // build employee name
     const nameEl = document.createElement('h2');
     nameEl.classList.add('employee-name');
     nameEl.textContent = name;
     card.appendChild(nameEl);
-
+    // build employee title
     const titleEl = document.createElement('p');
     titleEl.classList.add('employee-title');
     titleEl.textContent = title;
     card.appendChild(titleEl);
-
+    // build employee bio
     const bioEl = document.createElement('div');
     bioEl.classList.add('employee-bio');
     bioEl.innerHTML = bio;
     card.appendChild(bioEl);
-
+    // build the social elements 
     const socialsEl = document.createElement('div');
     socialsEl.classList.add('employee-socials');
     socialsEl.innerHTML = socialsHtml;
     card.appendChild(socialsEl);
-
+    // append finished employee card to the page
     resultsSection.appendChild(card);
 
   }
